@@ -1,5 +1,7 @@
 def selection_bucket_fill_with_gradient(numPixels=4.):
     img = gimp.image_list()[0]
+    # ensure the active layer is visible
+    pdb.gimp_layer_set_visible(img.active_layer, 1)
     drw = pdb.gimp_image_active_drawable(img)
     pdb.gimp_edit_copy(img.active_layer)
     floating_sel = pdb.gimp_edit_paste(drw, False)
